@@ -18,36 +18,18 @@
     <ClInclude Include="pch.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="InlinePatch.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Bypass.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="HttpHelper.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="execute-assembly.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="InlinePatch.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Bypass.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="HttpHelper.cpp">
+    <ClCompile Include="PatchEtw.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <MASM Include="Syscalls.asm">
+    <None Include="Syscalls.asm">
       <Filter>源文件</Filter>
-    </MASM>
+    </None>
   </ItemGroup>
 </Project>

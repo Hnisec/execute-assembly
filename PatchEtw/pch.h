@@ -9,18 +9,6 @@
 #ifndef PCH_H
 #define PCH_H
 
-#pragma once
-#include <fstream>
-#include <iostream>
-#include <stdio.h>
-#include <tchar.h>
-#include <string>
-#include <metahost.h>
-#pragma comment(lib, "mscoree.lib")
-#import "mscorlib.tlb" raw_interfaces_only high_property_prefixes("_get","_put","_putref") rename("ReportEvent", "InteropServices_ReportEvent")
-using namespace mscorlib;
-using namespace std;
-
-
+// TODO: 添加要在此处预编译的标头
 
 #endif //PCH_H
