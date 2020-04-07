@@ -154,6 +154,7 @@ bool LoadAssembly(char *assemblyBuffer, long buffsize, string args, int argsSize
 		psaStaticMethodArgs = SafeArrayCreateVector(VT_VARIANT, 0, 1);
 		LPWSTR *szArglist;
 		int nArgs;
+		setlocale(LC_CTYPE, "chs");
 		wchar_t *wtext = (wchar_t *)malloc((sizeof(wchar_t) * argsSize + 1));
 		mbstowcs(wtext, (char *)args.data(), argsSize + 1);
 		szArglist = CommandLineToArgvW(wtext, &nArgs);
@@ -161,15 +162,8 @@ bool LoadAssembly(char *assemblyBuffer, long buffsize, string args, int argsSize
 		vtPsa.parray = SafeArrayCreateVector(VT_BSTR, 0, nArgs);
 		for (long i = 0; i < nArgs; i++)
 		{
-			size_t converted;
-			size_t strlength = wcslen(szArglist[i]) + 1;
-			OLECHAR *sOleText1 = new OLECHAR[strlength];
-			char * buffer = (char *)malloc(strlength * sizeof(char));
-			wcstombs(buffer, szArglist[i], strlength);
-			mbstowcs_s(&converted, sOleText1, strlength, buffer, strlength);
-			BSTR strParam1 = SysAllocString(sOleText1);
+			BSTR strParam1 = SysAllocString(szArglist[i]);
 			SafeArrayPutElement(vtPsa.parray, &i, strParam1);
-			free(buffer);
 		}
 		long iEventCdIdx(0);
 		hr = SafeArrayPutElement(psaStaticMethodArgs, &iEventCdIdx, &vtPsa);
